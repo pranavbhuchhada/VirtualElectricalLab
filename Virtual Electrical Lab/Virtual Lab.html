@@ -1,0 +1,278 @@
+<html >
+<head>
+<title>Virtual Lab</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+/* ~~this fixed width container surrounds the other divs~~ */
+.container {
+	width: 960px;
+	background-color: #ffffff;
+	margin: 0 auto;
+}
+
+/* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+.header {
+	background-color: #4CAF50;
+	font-size: 350%;
+	font-family: monospace, Candara, "Adobe Caslon Pro";
+	color: #FFF;
+}
+
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #FFFFFF;
+	padding-bottom: 10px;
+}
+.content {
+	width: 780px;
+	float: right;
+	background-color: #FFF;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+ul.nav {
+	list-style: none; /* this removes the list marker */
+	border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+	margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* this creates the button separation */
+}
+ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 15px;
+	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	width: 160px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+
+/* ~~ The footer ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #555555;
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+	color: #4CAF50;
+}
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+a:link {
+    color: #4CAF50;
+    background-color: transparent;
+    text-decoration: none;
+	
+}
+a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+	color: black;
+	background-color: #999999;
+}
+a:active {
+    color: black;
+    background-color: #4CAF50;
+
+}
+.dropbtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	width: 170px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+-->
+</style>
+<link rel="shortcut icon" type="image/x-icon" href="Resources/logo.ico" />
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header"> <div style="margin-left: 30px;">VEL<span style="font-size:25px">
+  <a href="https://www.charusat.ac.in"><img src="Resources/charusat logo.png" width="200" height="38" alt="charsuat logo" style="float:right; margin-top:15px;"/></a>(Virtual Electrical lab)</span></div>
+  </div>
+  <div class="sidebar1">
+    <p><a href="Virtual%20Lab.html"><img src="Resources/logo.gif" width="170" height="180" alt="logo" style="float:left" /></a></p>
+    <p>&nbsp;</p>
+    <p style="font-size:24px">Experiments</p>
+    <div class="dropdown">
+  <button class="dropbtn">Experiment 1</button>
+
+  <div class="dropdown-content">
+    <a href="EXPERIMENTS\exp-1 theory.html">Theory</a>
+    <a href="EXPERIMENTS\exp-1 procedure.html">Procedure</a>
+    <a href="EXPERIMENTS\exp-1 simulator.html">Simulator</a>
+  </div>
+</div><div>&nbsp;</div>
+<div class="dropdown">
+  <button class="dropbtn">Experiment 2</button>
+  <div class="dropdown-content">
+    <a href="#">Theory</a>
+    <a href="#">Procedure</a>
+    <a href="#">Simulator</a>
+  </div>
+</div><div>&nbsp;</div>
+<div class="dropdown">
+  <button class="dropbtn">Experiment 3</button>
+  <div class="dropdown-content">
+    <a href="#">Theory</a>
+    <a href="#">Procedure</a>
+    <a href="#">Simulator</a>
+  </div>
+</div><div>&nbsp;</div>
+<div class="dropdown">
+  <button class="dropbtn">Experiment 4</button>
+  <div class="dropdown-content">
+    <a href="#">Theory</a>
+    <a href="#">Procedure</a>
+    <a href="#">Simulator</a>
+  </div>
+</div><div>&nbsp;</div>
+<div class="dropdown">
+  <button class="dropbtn">Experiment 5</button>
+  <div class="dropdown-content">
+    <a href="#">Theory</a>
+    <a href="#">Procedure</a>
+    <a href="#">Simulator</a>
+  </div>
+</div><div>&nbsp;</div>
+<div class="dropdown">
+  <button class="dropbtn">Experiment 6</button>
+  <div class="dropdown-content">
+    <a href="#">Theory</a>
+    <a href="#">Procedure</a>
+    <a href="#">Simulator</a>
+  </div>
+</div><div>&nbsp;</div>
+<div class="dropdown">
+  <button class="dropbtn">Experiment 7</button>
+  <div class="dropdown-content">
+    <a href="#">Theory</a>
+    <a href="#">Procedure</a>
+    <a href="#">Simulator</a>
+  </div>
+</div><div>&nbsp;</div>
+<div class="dropdown">
+  <button class="dropbtn">Experiment 8</button>
+  <div class="dropdown-content">
+    <a href="#">Theory</a>
+    <a href="#">Procedure</a>
+    <a href="#">Simulator</a>
+  </div>
+</div><div>&nbsp;</div>
+<div class="dropdown">
+  <button class="dropbtn">Experiment 9</button>
+  <div class="dropdown-content">
+    <a href="#">Theory</a>
+    <a href="#">Procedure</a>
+    <a href="#">Simulator</a>
+  </div>
+</div><div>&nbsp;</div>
+<div class="dropdown">
+  <button class="dropbtn">Experiment 10</button>
+  <div class="dropdown-content">
+    <a href="#">Theory</a>
+    <a href="#">Procedure</a>
+    <a href="#">Simulator</a>
+  </div>
+</div>
+   
+  </div>
+  <div class="content">
+    <h1><img draggable="false" src="Resources/board-911636_1920.jpg" width="765" height="200" alt="Circuit" /></h1>
+    <h1>VEL<span style="font-size: 50%">(Virtual Electrical lab)</span></h1>
+    <p>The VEL is based on the idea that lab experiments can be taught using the Internet, more efficiently and less expensively. The labs can also be made available to students with no access to physical labs or where equipment is not available owing to being scarce or costly. This helps them compete with students in better equipped schools and bridges the digital divide and geographical distances. The experiments can be accessed anytime and anywhere, overcoming the constraints on time felt when having access to the physical lab for only a short period of time.</p>
+    <h2>The features include :</h2>
+    <ul>
+      <li>Interactive simulations.</li>
+      <li>The concepts and understanding of the experiment.</li>
+      <li>The ability to perform, record and learn experiments - anywhere, anytime, and individualised practice in all areas of experimentation.    </li>
+    </ul>
+    <p>The development of VEL includes the study and use of mathematical techniques to demonstrate the various complex functions in diverse areas of science. The labs make use of cutting edge simulation technology to create real world lab environments. Thorough study and research is done by research personnel for better understanding of the experimental procedures.  Visualisation and development of the graphical symbols are done based on realistic situations and compared with the respective real equipment. Simulations are made interactive using various authoring tools, thus recreating and simulating a real lab environment.</p>
+    <p><!-- end .content --><img src="Resources/lab-1.jpg" width="750" height="194" /></p>
+  </div>
+  <div class="footer" style="text-align:center;">
+    <p>Developed by Palak Amin,Stavan Adhyaru &amp; Pranav bhuchhada.</p>
+    <p>Charotar University Of Science And Technolgy.</p>
+  <!-- end .footer --></div>
+  <!-- end .container --></div>
+</body>
+</html>
